@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>隐私政策 · Calendar Sync Personal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <a href="index.html">← Calendar Sync Personal</a>
+    <h1>隐私政策</h1>
+    <p class="lead" lang="en">Privacy Policy · Effective 14 October 2026</p>
+    <p>本政策描述账户所有者自用的 Calendar Sync Personal 如何处理 Google Calendar 与 iCloud Calendar 数据。当前实现限于明确选定的一对专用测试日历，不向公众提供注册服务。</p>
+    <section>
+      <h2>访问的数据与用途</h2>
+      <p>工具通过 Google OAuth 和 Apple App 专用密码访问 CalDAV 服务。日历数据包括事件标识、标题、描述、起止时间、时区、地点、提醒、重复规则及事件中的其他日历属性；还读取日历名称、标识和用于检测修改的版本信息。</p>
+      <p>这些数据仅用于所选日历之间的双向同步、冲突与异常删除检查，以及同步备份和恢复。Google 日历 OAuth 权限可能覆盖其他日历；工具通过配置和身份校验限制实际同步目标。</p>
+    </section>
+    <section>
+      <h2>传输、存储与服务提供商</h2>
+      <p>选定日历的事件会在 Google 与 Apple 服务之间复制，这是双向同步的核心功能。GitHub Actions 托管运行器临时处理解密后的事件和凭据。网络通信使用 HTTPS，并验证 TLS 证书。</p>
+      <p>OAuth token、同步数据库和事件备份打包加密后，保存在账户所有者的 GitHub 私有仓库状态分支。解密密钥和运行所需凭据保存在 GitHub Actions Secrets 中。持有仓库管理权或能够修改工作流并使用这些 Secrets 的人员，可能访问这些数据；加密不能消除这一访问风险。</p>
+      <p>首次授权及维护会在账户所有者本机生成包含明文凭据和日历备份的私有文件，由本机文件权限保护，不提交到 Git。账户所有者负责保护本机磁盘、下载的客户端配置及离线备份。</p>
+      <p>本工具只记录运行状态、事件数量和经过限制的错误提示，避免记录事件正文、密码、token 和日历私密 URL。Google、Apple、GitHub 会依照各自服务政策处理其服务中的数据。</p>
+    </section>
+    <section>
+      <h2>不用于广告、出售或模型训练</h2>
+      <p>本工具不会出售日历数据，不将数据用于广告，也不调用 AI 服务分析日历内容或训练模型。除实现同步及其运行、备份和恢复所必需的 Google、Apple、GitHub 服务外，不主动向其他服务发送事件数据。</p>
+      <p lang="en">Calendar Sync Personal's use and transfer of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+    </section>
+    <section>
+      <h2>保留、撤销与删除</h2>
+      <p>同步状态及加密备份在部署存续期间保留。Git 分支历史可能保留以前的加密版本；删除单个事件不会立即清除全部历史备份。两侧日历本身的数据遵循各自服务的保留规则。</p>
+      <p>账户所有者可随时关闭同步，在 <a href="https://myaccount.google.com/connections">Google 账户连接设置</a>撤销 OAuth 授权，并在 <a href="https://account.apple.com/">Apple 账户</a>撤销对应 App 专用密码。</p>
+      <p>完整移除部署时，应先停用工作流并撤销凭据，再删除 GitHub Secrets、私有状态仓库及其历史、本机私有文件和自建离线备份。服务提供商的残留备份或日志按其保留政策处理。撤销授权不会自动删除两侧已经同步的事件。</p>
+    </section>
+    <section>
+      <h2>此说明网站与联系</h2>
+      <p>本站不包含登录、表单、分析脚本、广告或自设 cookie。GitHub Pages 作为托管服务可能收集 IP 地址及请求日志；详情见 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub 隐私声明</a>。</p>
+      <p>维护者为 <a href="https://github.com/JingfengWang1">JingfengWang1</a>。如需联系，请使用 Google 授权页面列出的用户支持邮箱。不要通过公开问题或评论提交事件内容、密码或 token。</p>
+      <p>处理方式发生变化时，维护者应更新本政策及生效日期，并在需要时重新取得授权。</p>
+    </section>
+    <nav aria-label="政策"><a href="index.html">应用首页</a><a href="terms.html">使用条款</a></nav>
+  </main>
+</body>
+</html>
